@@ -1,0 +1,32 @@
+nav {
+    background-color:#FF6688;
+    a {
+        color: white;
+    }
+}
+
+.jumbotron {
+    background:url(header-bg.jpg) center no-repeat;
+    background-size: cover;
+    height: 650px;
+}
+
+.container-jumbotron {
+    padding-top: 13%;
+    color: #FF6688;
+     text-shadow: 
+       2px  2px 1px #000,
+      -2px  2px 1px #000,
+       2px -2px 1px #000,
+      -2px -2px 1px #000,
+       2px  0px 1px #000,
+       0px  2px 1px #000,
+      -2px  0px 1px #000,
+       0px -2px 1px #000;        /* 文字の影 */
+    letter-spacing : 4px;                /* 文字間 */
+}
+
+.feature-wrap {
+    background-color:#FFCCD6;
+    color: #990088;
+}
