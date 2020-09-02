@@ -3,7 +3,12 @@ nav {
     a {
         color: white;
     }
+    .navbar-toggler {
+        background-color: #FFCCD6;
+        border-color: #000;
+    }
 }
+
 
 .jumbotron {
     background:url(header-bg.jpg) center no-repeat;
