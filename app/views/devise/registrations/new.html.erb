@@ -10,7 +10,28 @@
                                                 class: 'form-control',
                                                 required: true %>
   </div>
-
+  <div class="form-group">
+    <%= f.label :name, "ユーザー名"%>
+    <%= f.text_field :name, class: 'form-control', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :birth_date, "生年月日"%><br/>
+    <%= f.date_select(
+          :birth_date,          
+          use_month_numbers: true, # jan, febとかじゃなくて数字で月を表現
+          start_year:     1930, # 何年から表示させるか
+          end_year:       (Time.now.year), # 何年まで表示させるか
+          default:        Date.new(1980, 1, 1), # 最初に表示されている年月日
+          date_separator: '/') # 年月日を仕切る文字
+   %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sex, "性別"%><br/>
+    <%= f.label :man , "男性"%>
+    <%= f.radio_button :sex, :man, required: true %>
+    <%= f.label :woman, "女性"%>
+    <%= f.radio_button :sex, :woman %>
+  </div>
   <div class="form-group">
     <%= f.label :password %>
     <%= f.password_field :password, autocomplete: 'current-password',
