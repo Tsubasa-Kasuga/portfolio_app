@@ -52,7 +52,7 @@ ja:
     models:
       user: ユーザ
       teacher: 講師
-  devise:
+  users:
     confirmations:
       confirmed: メールアドレスが確認できました。
       new:
