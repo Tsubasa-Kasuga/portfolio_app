@@ -1,3 +1,8 @@
+.main-contents {
+    min-height:566px;
+    background-color:#FFCCD6;
+}
+
 nav {
     background-color:#FF6688;
     a {
@@ -7,8 +12,13 @@ nav {
         background-color: #FFCCD6;
         border-color: #000;
     }
+
 }
 
+
+.nav-link.active {
+    background-color:#FF6688;
+}
 
 .jumbotron {
     background:url(header-bg.jpg) center no-repeat;
@@ -34,6 +44,33 @@ nav {
 .feature-wrap {
     background-color:#FFCCD6;
     color: #990088;
+}
+
+.profile-wrap {
+    background-color:#FFCCD6;
+    color: #990088;
+    text-align: center;
+}
+
+.lesson-wrap {
+    background-color:#FFCCD6;
+    color: #990088;
+    
+    .title {
+        background-color:#FFCCD6;
+        text-align: right;
+    }
+    .lesson-tab {
+        text-align: center;
+        border-color: black;
+    }
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        background-color: #E00033;
+    }
+
+    a {
+        color: white;
+    }
 }
 
 footer {
