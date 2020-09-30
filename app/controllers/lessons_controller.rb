@@ -9,7 +9,7 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new(lesson_params)
-    
+    @lesson.teacher_id = current_teacher.id
     @lesson.save
     redirect_to @lesson
   end

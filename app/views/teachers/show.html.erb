@@ -1,2 +1,101 @@
-<h1>講師用マイページ</h1>
-<p>MyPage <%= @teacher.id %></p>
+
+<div class="container-fluid profile-wrap">
+    <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 p-5">
+    <h2><%= @teacher.name %></h2>
+    <p>性別:<%= @teacher.sex %></p>
+    <p>年齢:<%= @teacher.name %></p>
+    <p>ピアノ歴:１年</p>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+<div class="container-fluid lesson-wrap pb-5">
+  <div class="row title">
+    <div class="col-sm-3 p-2">
+      <h3>レッスン</h3>
+    </div>
+    <%= link_to 'レッスンを申請', new_lesson_path, class: 'btn btn-default btn-sm' %>
+  </div>
+  <div class="row lesson-tab">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <ul class="nav nav-tabs nav-justified nav-pills" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">申請手続き中</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">開講中</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="item3-tab" data-toggle="tab" href="#item3" role="tab" aria-controls="item3" aria-selected="false">終了</a>
+      </li>
+      </ul>
+      <div class="tab-content border">
+        <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+        <% if @lessons_unapproved.present? then %>
+            <% @lessons_unapproved.each do |lesson_unapproved| %>
+              <div class="row border p-0 m-0">
+              <div class="col-sm-12 text-left">
+                <ul class="lessons">
+                  <li class="text-left">
+                    申請日時:<%= lesson_unapproved.created_at.strftime("%Y-%m-%d %H:%M") %>
+                  </li>
+                  <li>
+                    <%= lesson_unapproved.title %>
+                  </li>
+                  <li>
+                    <%= lesson_unapproved.description %>
+                  </li>
+                  <li>
+                    <%= link_to '詳細', lesson_path(lesson_unapproved) %>
+                  </li>
+                </ul>    
+              </div>
+              </div>
+        <% end %>
+        <% else %>
+          <p class="text-center">申請中のレッスンはありません。</p>
+        <% end %>
+        </div>
+        <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+          <% if @lessons_approved.present? then %>
+          <% @lessons_approved.each do |lesson_approved| %>
+            <%= lesson_approved.title %></td>
+            <%= link_to 'Show', lesson_path(lesson_approved) %>
+          <% end %>
+        <% else %>
+        <div class="row">
+          <div class="col-sm-12">
+          <p class="text-center">開講中のレッスンはありません。</p>
+          </div>
+        </div>
+        <% end %>
+        </div>
+        <div class="tab-pane fade" id="item3" role="tabpanel" aria-labelledby="item3-tab">
+          <% if @lessons_finished.present? then %>
+          <% @lessons_finished.each do |lesson_finished| %>
+            <%= lesson_finished.title %></td>
+            <%= link_to 'Show', lesson_path(lesson_finished) %>
+          <% end %>
+        <% else %>
+          <p>終了したレッスンはありません。</p>
+        <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+<% if @lessons.present? then %>
+ <% @lessons.each do |lesson| %>
+    <tr>
+      <td><%= lesson.title %></td>
+      <td><%= link_to 'Show', lesson_path(lesson) %></td>
+    </tr>
+  <% end %>
+<% end %>
+
+
