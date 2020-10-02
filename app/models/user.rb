@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   # 関連付け
   has_many :user
-  has_many :lesson
+  has_many :attendance
   # バリデーション
   validates :name, presence: true
   validates :birth_date, presence: true
