@@ -1,14 +1,20 @@
-<p>
-  <strong>Title:</strong>
-  <%= @lesson.title %>
-</p>
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-sm-12">
+    <p>
+      <strong>Title:</strong>
+      <%= @lesson.title %>
+    </p>
 
-<p>
-  <strong>Descriotion:</strong>
-  <%= @lesson.description %>
-</p>
+    <p>
+      <strong>Descriotion:</strong>
+      <%= @lesson.description %>
+    </p>
 
-<%= form_with(model: current_user.attendance.build, local: true) do |f| %>
-  <div><%= hidden_field_tag :lesson_id, @lesson.id %></div>
-  <%= f.submit "申し込み", class: "btn btn-primary" %>
-<% end %>
+    <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
+      <div><%= hidden_field_tag :lesson_id, @lesson.id %></div>
+      <%= f.submit "申し込み", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  </div>
+</div>

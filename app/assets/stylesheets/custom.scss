@@ -1,6 +1,7 @@
 .main-contents {
-    min-height:566px;
+    min-height:700px;
     background-color:#FFCCD6;
+    color: #990088;
 }
 
 nav {
@@ -73,12 +74,6 @@ nav {
     }
 }
 
-footer {
-    background-color:#BBBBBB;
-    color: black;
-
-}
-
 .footer-copyright{
     background-color:#6d5a5a42;
 }
@@ -95,4 +90,11 @@ footer {
 
 .tab-content {
     background-color:#E9D9B0;
+}
+
+.lesson-index-wrap {
+    .lesson {
+        background-color:#f8e8eb;
+        border-bottom: medium solid #FFCCD6;
+    }
 }

@@ -1,12 +1,12 @@
-<div class="container-fluid profile-wrap">
+<div class="container-fluid lesson-index-wrap">
     <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 p-5">
 
-    <h1>レッスン一覧</h1>
+    <h1 class="text-center pb-4">レッスン一覧</h1>
     <% if @lessons.present? then %>
         <% @lessons.each do |lesson| %>
-          <div class="row border p-0 m-0">
+          <div class="row p-2 m-0 lesson">
           <div class="col-sm-12 text-left">
             <ul class="lessons">
               <li class="text-left">
