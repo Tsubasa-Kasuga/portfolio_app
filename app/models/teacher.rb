@@ -7,7 +7,7 @@ class Teacher < ApplicationRecord
   validates :name, presence: true
   validates :birth_date, presence: true
   validates :sex, presence: true
-  enum sex: { man: 0, woman: 1}
+  enum sex: { 男性: 0, 女性: 1}
   
   # 関連付け
   has_many :lessons

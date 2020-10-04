@@ -35,22 +35,22 @@
       </ul>
       <div class="tab-content border">
         <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
-        <% if @lessons_attendanced.present? then %>
-            <% @lessons_attendanced.each do |lesson_attendanced| %>
+        <% if @lessons_unapproved.present? then %>
+            <% @lessons_unapproved.each do |lesson_unapproved| %>
               <div class="row border p-0 m-0">
               <div class="col-sm-12 text-left">
                 <ul class="lessons">
                   <li class="text-left">
-                    申請日時:<%= lesson_attendanced.created_at.strftime("%Y-%m-%d %H:%M") %>
+                    申請日時:<%= lesson_unapproved.created_at.strftime("%Y-%m-%d %H:%M") %>
                   </li>
                   <li>
-                    <%= lesson_attendanced.title %>
+                    <%= lesson_unapproved.title %>
                   </li>
                   <li>
-                    <%= lesson_attendanced.description %>
+                    <%= lesson_unapproved.description %>
                   </li>
                   <li>
-                    <%= link_to '詳細', lesson_path(lesson_attendanced) %>
+                    <%= link_to '詳細', lesson_path(lesson_unapproved) %>
                   </li>
                 </ul>    
               </div>
