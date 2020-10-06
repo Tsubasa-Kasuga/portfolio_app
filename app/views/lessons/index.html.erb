@@ -1,66 +1,30 @@
-<div class="container lesson-index-wrap">
+<div class="container lesson-index-wrap p-2">
 
 <h1 class="text-center p-5">レッスン一覧</h1>
 
 <% if @lessons.present? then %>
-   <div class="card-deck">
-      <div class="row">
-  <% @lessons.each do |lesson| %>
-        <div class="col-sm-4 pt-5">
-          <div class="card h-100 ">
-                 <% if lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
-                      <%= image_tag lesson.lessonImage.url, class: 'card-img-top', height: '300px'%>
-                <% else %>
-                    <%= image_tag 'default.png', class: 'card-img-top', alt: 'デフォルトイメージ', height: '300px'%>
-                <% end %>
-            <div class="card-body">
-              <h2 class="card-title"><%= lesson.title %></h2>
-              <p class="card-text">講師:<%= lesson.teacher.name %></p>
-              <p class="card-text">価格:<%= lesson.price %></p>
-              <%= link_to 'もっと見る', lesson_path(lesson), class:'btn btn-primary ' %>
-            </div>
-          </div>
-        </div>
-    <% end %>
-       </div>
-    </div>
-<% end %>
-
-
+  <%= will_paginate @lessons, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
     <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-8 p-5">
-
-    <h1 class="text-center pb-4">レッスン一覧</h1>
-    <% if @lessons.present? then %>
-        <% @lessons.each do |lesson| %>
-          <div class="row p-2 m-0 lesson">
-          <div class="col-sm-12 text-left">
-            <ul class="lessons">
-              <li class="text-left">
-                レッスン名:<%= lesson.title %>
-              </li>
-              <li>
-                講師:<%= lesson.teacher.name %>
-              </li>
-              <li>
-                <%= lesson.description %>
-              </li>
-              <li>
-                <%= link_to '詳細', lesson_path(lesson) %>
-              </li>
-            </ul>    
-          </div>
-          </div>
-        <% end %>
-    <% else %>
-        <p class="text-center">受講中のレッスンはありません。</p>
-    <% end %>
-    
+      <% @lessons.each do |lesson| %>
+            <div class="col-sm-4 pt-3 pb-3">
+              <div class="card h-100 ">
+                    <% if lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
+                          <%= image_tag lesson.lessonImage.url, class: 'card-img-top', height: '300px'%>
+                    <% else %>
+                        <%= image_tag 'default.png', class: 'card-img-top', alt: 'デフォルトイメージ', height: '300px'%>
+                    <% end %>
+                <div class="card-body">
+                  <h2 class="card-title"><%= lesson.title %></h2>
+                  <p class="card-text">講師:<%= lesson.teacher.name %></p>
+                  <p class="card-text">価格:<%= lesson.price %></p>
+                  <%= link_to 'もっと見る', lesson_path(lesson), class:'btn btn-primary ' %>
+                </div>
+              </div>
+            </div>
+      <% end %>
     </div>
-    </div>
-    <div class="col-sm-2"></div>
-  </div>
+  <%= will_paginate @lessons, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+<% end %>
 </div>
 
 

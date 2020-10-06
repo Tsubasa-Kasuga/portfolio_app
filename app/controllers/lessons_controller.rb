@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.paginate(page: params[:page], per_page: 6)
   end
 
   def show

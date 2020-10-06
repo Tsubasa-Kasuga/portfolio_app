@@ -4,7 +4,7 @@
     color: #990088;
 }
 
-nav {
+.navbar {
     background-color:#FF6688;
     a {
         color: white;
@@ -69,9 +69,11 @@ nav {
         background-color: #E00033;
     }
 
-    a {
-        color: white;
+    .nav-pills .nav-link {
+        background-color: #f8e8eb;
     }
+
+
 }
 
 .footer-copyright{
@@ -88,8 +90,8 @@ nav {
       }
 }
 
-.tab-content {
-    background-color:#E9D9B0;
+.tab-lesson {
+    background-color:#f8e8eb;
 }
 
 .lesson-index-wrap {
@@ -102,3 +104,4 @@ nav {
 .card-body {
     background-color:#f8e8eb;
 }
+
