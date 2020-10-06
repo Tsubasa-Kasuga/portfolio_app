@@ -1,6 +1,13 @@
 <div class="container-fluid">
   <div class="row">
   <div class="col-sm-12">
+      <% if @lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
+      <p>
+        <%= image_tag @lesson.lessonImage.url, class: 'rounded-circle' %>
+      </p>
+      <% else %>
+       <%= image_tag 'default.png', alt: 'デフォルトイメージ' %>
+    <% end %>
     <p>
       <strong>Title:</strong>
       <%= @lesson.title %>

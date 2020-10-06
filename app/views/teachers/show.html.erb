@@ -1,9 +1,14 @@
 
-<div class="container-fluid profile-wrap">
+<div class="container profile-wrap">
     <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 p-5">
     <h2><%= @teacher.name %></h2>
+    <% if @teacher.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+      <p>
+        <%= image_tag @teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      </p>
+    <% end %>
     <p>性別:<%= @teacher.sex %></p>
     <p>年齢:<%= @teacher.name %></p>
     <p>ピアノ歴:１年</p>

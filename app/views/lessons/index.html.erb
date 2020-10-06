@@ -1,4 +1,32 @@
-<div class="container-fluid lesson-index-wrap">
+<div class="container lesson-index-wrap">
+
+<h1 class="text-center p-5">レッスン一覧</h1>
+
+<% if @lessons.present? then %>
+   <div class="card-deck">
+      <div class="row">
+  <% @lessons.each do |lesson| %>
+        <div class="col-sm-4 pt-5">
+          <div class="card h-100 ">
+                 <% if lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
+                      <%= image_tag lesson.lessonImage.url, class: 'card-img-top', height: '300px'%>
+                <% else %>
+                    <%= image_tag 'default.png', class: 'card-img-top', alt: 'デフォルトイメージ', height: '300px'%>
+                <% end %>
+            <div class="card-body">
+              <h2 class="card-title"><%= lesson.title %></h2>
+              <p class="card-text">講師:<%= lesson.teacher.name %></p>
+              <p class="card-text">価格:<%= lesson.price %></p>
+              <%= link_to 'もっと見る', lesson_path(lesson), class:'btn btn-primary ' %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+       </div>
+    </div>
+<% end %>
+
+
     <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8 p-5">
@@ -34,3 +62,7 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
+
+
+
+	

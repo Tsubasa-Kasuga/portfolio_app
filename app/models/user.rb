@@ -7,6 +7,7 @@ class User < ApplicationRecord
   # 関連付け
   has_many :user
   has_many :attendance
+  mount_uploader :avatar, AvatarUploader
   # バリデーション
   validates :name, presence: true
   validates :birth_date, presence: true

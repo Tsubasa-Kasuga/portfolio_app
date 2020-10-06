@@ -4,6 +4,11 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-8 p-5">
     <h2><%= @user.name %></h2>
+    <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+      <p>
+        <%= image_tag @user.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      </p>
+    <% end %>
     <p>性別:<%= @user.sex %></p>
     <p>年齢:<%= @user.name %></p>
     <p>ピアノ歴:１年</p>
