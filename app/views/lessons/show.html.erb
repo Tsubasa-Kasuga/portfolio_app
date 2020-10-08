@@ -3,8 +3,8 @@
   <div class="col-sm-8">
     <h2 class="pt-3 pb-3"><%= @lesson.title %></h2>
       <div class="pb-5">
-      <% if @lessonImage.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @lessonImage.lessonImage.url, width: '100%', height: '100%' %>
+      <% if @lesson.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
+        <%= image_tag @lesson.lessonImage.url, width: '100%', height: '100%' %>
       
       <% else %>
        <%= image_tag 'default.png', alt: 'デフォルトイメージ' %>
@@ -21,7 +21,7 @@
       <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
       
       コース：<%= @lesson.frequency %>
-      
+      <%= @lesson.id %>
       <% if current_user then %>
         <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
           <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
@@ -31,7 +31,7 @@
       </h4>
       </div>
 
-      <div class="border pt-5 pb-5 mt-5 h-50 bg-light text-center">
+      <div class="border pt-5 pb-5 mt-5 h-70 bg-light text-center">
       <h4 class="text-center">講師プロフィール
       </h4>
       <% if @lesson.teacher.avatar? %>  <!-- アップロード画像がある場合に実行する -->
@@ -39,8 +39,8 @@
         <%= image_tag @lesson.teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
       </p>
     <% end %>
-      <p><%= @lesson.name %></p>
-      <p><%= @lesson.teacher.age %>歳</p>
+      <p><%= @lesson.teacher.name %></p>
+      <p><%= @lesson.teacher.age %></p>
       <p><%= @lesson.teacher.sex %></p>
 
 

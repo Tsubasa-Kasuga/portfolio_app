@@ -14,8 +14,12 @@ class Teacher < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def age
-    d1 = self.birth_date.strftime("%Y%m%d").to_i
-    d2 = Date.today.strftime("%Y%m%d").to_i
-    return (d2 - d1) / 10000
+    if self.birth_date then
+      d1 = self.birth_date.strftime("%Y%m%d").to_i
+      d2 = Date.today.strftime("%Y%m%d").to_i
+      "#{(d2 - d1) / 10000}歳"
+    else
+      "年齢未設定"
+    end
   end
 end

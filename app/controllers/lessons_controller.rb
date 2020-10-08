@@ -5,8 +5,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.joins(:teacher).select('lessons.*, teachers.*').find(params[:id])
-    @lessonImage = Lesson.find(params[:id])
+    @lesson = Lesson.joins(:teacher).select('lessons.*').find(params[:id])
     
   end
 

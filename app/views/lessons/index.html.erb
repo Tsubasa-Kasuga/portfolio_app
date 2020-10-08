@@ -7,6 +7,7 @@
     <div class="row">
       <% @lessons.each do |lesson| %>
             <div class="col-sm-4 pt-3 pb-3">
+            <%= link_to lesson_path(lesson), style: "text-decoration: none;" do %>
               <div class="card h-100 ">
                     <% if lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
                           <%= image_tag lesson.lessonImage.url, class: 'card-img-top', height: '300px'%>
@@ -17,9 +18,9 @@
                   <h2 class="card-title"><%= lesson.title %></h2>
                   <p class="card-text">講師:<%= lesson.teacher.name %></p>
                   <p class="card-text">価格:<%= converting_to_jpy(lesson.price) %></p>
-                  <%= link_to 'もっと見る', lesson_path(lesson), class:'btn btn-primary ' %>
                 </div>
               </div>
+            <% end %>
             </div>
       <% end %>
     </div>
