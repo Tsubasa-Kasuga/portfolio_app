@@ -16,7 +16,7 @@
                 <div class="card-body">
                   <h2 class="card-title"><%= lesson.title %></h2>
                   <p class="card-text">講師:<%= lesson.teacher.name %></p>
-                  <p class="card-text">価格:<%= lesson.price %></p>
+                  <p class="card-text">価格:<%= converting_to_jpy(lesson.price) %></p>
                   <%= link_to 'もっと見る', lesson_path(lesson), class:'btn btn-primary ' %>
                 </div>
               </div>

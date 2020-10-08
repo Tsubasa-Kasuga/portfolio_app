@@ -5,7 +5,7 @@ class Lesson < ApplicationRecord
   mount_uploader :lessonImage, AvatarUploader
 
   enum frequency:{
-    ワンポイントレッスン: 0,
+    １回コース: 0,
     月4回コース: 1,
     月2回コース: 2
   }

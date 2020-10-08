@@ -1,28 +1,54 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-  <div class="col-sm-12">
-      <% if @lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
-      <p>
-        <%= image_tag @lesson.lessonImage.url, class: 'rounded-circle' %>
-      </p>
+  <div class="col-sm-8">
+    <h2 class="pt-3 pb-3"><%= @lesson.title %></h2>
+      <div class="pb-5">
+      <% if @lessonImage.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
+        <%= image_tag @lessonImage.lessonImage.url, width: '100%', height: '100%' %>
+      
       <% else %>
        <%= image_tag 'default.png', alt: 'デフォルトイメージ' %>
-    <% end %>
-    <p>
-      <strong>Title:</strong>
-      <%= @lesson.title %>
-    </p>
-
-    <p>
-      <strong>Descriotion:</strong>
-      <%= @lesson.description %>
-    </p>
-    <% if current_user then %>
-      <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
-        <div><%= hidden_field_tag :lesson_id, @lesson.id %></div>
-        <%= f.submit "申し込み", class: "btn btn-primary" %>
+       <% end %>
+       </div>
+    <h2>レッスン内容</h2>
+    <div class="border pt-2 mb-5">
+      <%= simple_format(@lesson.description) %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="border h-100 p-3">
+      <div class="border pt-5 pb-5 pl-5 bg-light">
+      <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
+      
+      コース：<%= @lesson.frequency %>
+      
+      <% if current_user then %>
+        <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
+          <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
+          <%= f.submit "申し込む", class: "btn btn-primary" %>
+        <% end %>
       <% end %>
+      </h4>
+      </div>
+
+      <div class="border pt-5 pb-5 mt-5 h-50 bg-light text-center">
+      <h4 class="text-center">講師プロフィール
+      </h4>
+      <% if @lesson.teacher.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+      <p>
+        <%= image_tag @lesson.teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      </p>
     <% end %>
+      <p><%= @lesson.name %></p>
+      <p><%= @lesson.teacher.age %>歳</p>
+      <p><%= @lesson.teacher.sex %></p>
+
+
+      </div>
+
+
+
+    </div>
   </div>
   </div>
 </div>

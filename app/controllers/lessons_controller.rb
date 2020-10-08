@@ -5,7 +5,9 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = Lesson.joins(:teacher).select('lessons.*, teachers.*').find(params[:id])
+    @lessonImage = Lesson.find(params[:id])
+    
   end
 
   def new
@@ -20,6 +22,6 @@ class LessonsController < ApplicationController
 
   private
     def lesson_params
-        params.require(:lesson).permit(:title, :description, :lessonImage)
+        params.require(:lesson).permit(:title, :description, :time, :price, :frequency, :lessonImage)
     end
 end
