@@ -6,7 +6,7 @@
     <h2><%= @user.name %></h2>
     <div>
     <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @user.avatar.url, class: 'rounded-circle img-fluid' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        <%= image_tag @user.avatar.url, class: 'img-fluid' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
     <% else %>
        <%= image_tag 'default_avater.png', alt: 'デフォルトイメージ', class: 'img-fluid' %>
     <% end %>
