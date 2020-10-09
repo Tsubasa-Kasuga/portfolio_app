@@ -45,10 +45,11 @@
             <% @lessons_unapproved.each do |lesson_unapproved| %>
               <%= link_to lesson_path(lesson_unapproved), style: "text-decoration: none;" do %>
                 <div class="row border p-0 m-0">
-                <div class="col-sm-7 text-left tab-lesson">
+                <div class="col-sm-7 text-left tab-lesson p-2">
                     <h4><%= lesson_unapproved.title %></h3>
                     <p>料金:<%= converting_to_jpy(lesson_unapproved.price) %></p>
                     <p>申込日:<%= lesson_unapproved.created_at.strftime("%Y-%m-%d") %></p>
+                    <object><%= link_to '編集', edit_lesson_path(lesson_unapproved.id) %></object>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">
                   <% if lesson_unapproved.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
