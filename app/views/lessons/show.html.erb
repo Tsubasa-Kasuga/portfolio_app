@@ -10,12 +10,12 @@
       <% end %>
        </div>
     <h2>レッスン内容</h2>
-    <div class="border pt-2 mb-5">
+    <div class="pt-2 mb-5">
       <%= simple_format(@lesson.description) %>
     </div>
   </div>
   <div class="col-sm-4">
-    <div class="border h-100 p-3">
+    <div class="h-100 p-3">
       <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
       <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
       
