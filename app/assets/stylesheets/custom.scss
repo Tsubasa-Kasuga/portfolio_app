@@ -99,6 +99,23 @@
       }
 }
 
+// レッスン詳細ページ
+.lesson-image {
+    img {
+        width: 3000px;
+        max-height: 500px;
+        object-fit: cover;
+      }
+}
+
+.lesson-apply-wrap {
+    background-color:#f8e8eb;
+}
+
+.lesson-teacher-wrap {
+    background-color:#f8e8eb;
+}
+
 .lesson-index-wrap {
     .lesson {
         background-color:#f8e8eb;

@@ -2,12 +2,11 @@
   <div class="row">
   <div class="col-sm-8">
     <h2 class="pt-3 pb-3"><%= @lesson.title %></h2>
-      <div class="pb-5">
-      <% if @lesson.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @lesson.lessonImage.url, width: '100%', height: '100%' %>
-      
+      <div class="pb-5 lesson-image">
+      <% if @lesson.lessonImage? then   %>
+        <%= image_tag @lesson.lessonImage.url, class: 'img-fluid' %>
       <% else %>
-       <%= image_tag 'default.png', alt: 'デフォルトイメージ' %>
+       <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: 'img-fluid'%>
       <% end %>
        </div>
     <h2>レッスン内容</h2>
@@ -17,11 +16,10 @@
   </div>
   <div class="col-sm-4">
     <div class="border h-100 p-3">
-      <div class="border pt-5 pb-5 pl-5 bg-light">
+      <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
       <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
       
       コース：<%= @lesson.frequency %>
-      <%= @lesson.id %>
       <% if current_user then %>
         <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
           <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
@@ -31,12 +29,12 @@
       </h4>
       </div>
 
-      <div class="border pt-5 pb-5 mt-5 h-70 bg-light text-center">
+      <div class="border pt-5 pb-5 mt-5 h-70 text-center lesson-teacher-wrap">
       <h4 class="text-center">講師プロフィール
       </h4>
-      <% if @lesson.teacher.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+      <% if @lesson.teacher.avatar? %> 
       <p>
-        <%= image_tag @lesson.teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>
       </p>
       <% end %>
       <p><%= @lesson.teacher.name %></p>
