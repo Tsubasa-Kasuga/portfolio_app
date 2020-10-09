@@ -9,9 +9,8 @@
         <%= image_tag @teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
       </p>
     <% end %>
-    <p>性別:<%= @teacher.sex %></p>
-    <p>年齢:<%= @teacher.age %></p>
-    <p>ピアノ歴:１年</p>
+      <p><%= @teacher.sex %></p>
+      <p><%= @teacher.age %></p>
     </div>
     <div class="col-sm-2"></div>
   </div>

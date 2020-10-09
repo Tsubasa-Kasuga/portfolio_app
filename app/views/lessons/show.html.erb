@@ -8,7 +8,7 @@
       
       <% else %>
        <%= image_tag 'default.png', alt: 'デフォルトイメージ' %>
-       <% end %>
+      <% end %>
        </div>
     <h2>レッスン内容</h2>
     <div class="border pt-2 mb-5">
@@ -38,7 +38,7 @@
       <p>
         <%= image_tag @lesson.teacher.avatar.url, class: 'rounded-circle' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
       </p>
-    <% end %>
+      <% end %>
       <p><%= @lesson.teacher.name %></p>
       <p><%= @lesson.teacher.age %></p>
       <p><%= @lesson.teacher.sex %></p>
