@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
   resources :teachers, only: [:show]
-  resources :admins, only: [:index], path: '/admins'
-  resources :users, path: '/admins/users'
-
+  resources :admin, only: [:index]
+  namespace :admin do
+    resources :users
+  end
 end
