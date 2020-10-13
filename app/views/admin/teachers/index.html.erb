@@ -1,0 +1,38 @@
+<div class="container min-vh-75">
+  <div class="row">
+     <h1 class="my-3 ml-3">講師一覧</h1>
+    <div class="col-12">
+      <table class="table">
+            <thead></thead>
+                <tr>
+                    <th>ID</th>
+                    <th>氏名</th>
+                    <th>性別</th>
+                    <th>生年月日</th>
+                    <th>Email</th>
+                    <th>入会日時</th>
+                    <th>最終更新日時</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @teachers.each do |teacher| %>
+                <tr>
+                    <td><%= teacher.id%></td>
+                    <td><%= teacher.name%></td>
+                    <td><%= teacher.sex%></td>
+                    <td><%= teacher.birth_date%></td>
+                    <td><%= teacher.email%></td>
+                    <td><%= teacher.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+                    <td><%= teacher.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
+                    <td><%= link_to '詳細', admin_teacher_path(teacher.id) %></td> 
+                    <td><%= link_to '編集', edit_admin_teacher_path(teacher.id) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @teachers, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   resources :teachers, only: [:show]
   resources :admin, only: [:index]
   namespace :admin do
-    resources :users
+    resources :users, :teachers
   end
 end
