@@ -11,6 +11,7 @@
        <%= image_tag 'default_avater.png', alt: 'デフォルトイメージ', class: 'img-fluid' %>
     <% end %>
     </div>
+    <div>
       <p><%= @teacher.sex %></p>
       <p><%= @teacher.age %></p>
     </div>
@@ -20,7 +21,7 @@
 
 
 
-<!-- 申請中タブ-->
+<!-- レッスンタブ-->
 <div class="container-fluid lesson-wrap pb-5">
   <div class="row lesson-tab">
     <div class="col-sm-2"></div>
@@ -39,7 +40,6 @@
         <a class="nav-link" id="item3-tab" data-toggle="tab" href="#item3" role="tab" aria-controls="item3" aria-selected="false">終了</a>
       </li>
       </ul>
-      <!-- レッスンタブ-->
       <div class="tab-content">
        <!-- 申請中タブ-->
       <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
@@ -129,5 +129,6 @@
       </div>
     <div class="col-sm-2"></div>
   </div>
+</div>
 </div>
 </div>

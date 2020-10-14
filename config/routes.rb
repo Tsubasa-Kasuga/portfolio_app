@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
   namespace :admin do
     resources :users, :teachers
+    resources :lessons do
+      member do
+        patch 'approval'
+      end
+    end
   end
 end

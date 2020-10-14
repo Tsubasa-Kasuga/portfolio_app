@@ -1,0 +1,100 @@
+<div class="container min-vh-75 lesson-wrap">
+    <div class="row lesson-tab">
+    <div class="col-12">
+        <h1 class="my-3 ml-3">レッスン一覧</h1>
+    
+        <!-- レッスンタブ-->
+        
+        <div class="text-left">
+        <%= link_to 'レッスンを申請する', new_lesson_path, class: 'btn btn-primary btn-sm' %>
+        </div>
+        <ul class="nav nav-tabs nav-justified nav-pills" role="tablist">
+            <li class="nav-item border">
+                <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">申請中</a>
+            </li>
+            <li class="nav-item border">
+                <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">開講中</a>
+            </li>
+        </ul>
+        
+        <div class="tab-content">
+        <!-- 申請中タブ-->
+        <div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+        <% if @lessons_unapproved.present? then %>
+            <table class="table">
+                <thead></thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>タイトル</th>
+                        <th>講師名</th>
+                        <th>料金</th>
+                        <th>開講開始日時</th>
+                        <th>最終更新日時</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @lessons_unapproved.each do |lesson| %>
+                    <tr>
+                        <td><%= lesson.id %></td>
+                        <td><%= lesson.title %></td>
+                        <td><%= lesson.teacher.name %></td>
+                        <td><%= converting_to_jpy(lesson.price) %></td>
+                        <td><%= lesson.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+                        <td><%= lesson.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
+                        <td><%= link_to '詳細', admin_lesson_path(lesson.id) %></td> 
+                        <td><%= link_to '編集', edit_admin_lesson_path(lesson.id) %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+            <%= will_paginate @lessons_unapproved, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+        <% else %>
+        <div class="col-sm-12 tab-lesson">
+          該当のレッスンはございません。
+        </div>
+        <% end %>
+        </div>
+        <!-- 開講中タブ-->
+        <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+            <% if @lessons_approved.present? then %>
+            <table class="table">
+                <thead></thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>タイトル</th>
+                        <th>講師名</th>
+                        <th>料金</th>
+                        <th>開講開始日時</th>
+                        <th>最終更新日時</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @lessons_approved.each do |lesson| %>
+                    <tr>
+                        <td><%= lesson.id %></td>
+                        <td><%= lesson.title %></td>
+                        <td><%= lesson.teacher.name %></td>
+                        <td><%= converting_to_jpy(lesson.price) %></td>
+                        <td><%= lesson.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+                        <td><%= lesson.updated_at.strftime("%Y-%m-%d %H:%M")%></td>
+                        <td><%= link_to '詳細', admin_lesson_path(lesson.id) %></td> 
+                        <td><%= link_to '編集', edit_admin_lesson_path(lesson.id) %></td>
+                    </tr>
+                <% end %>
+                </tbody>
+            </table>
+            <%= will_paginate @lessons_unapproved, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+        <% else %>
+        <div class="col-sm-12 tab-lesson">
+          該当のレッスンはございません。
+        </div>
+        <% end %>
+        </div>
+    </div>
+    </div>
+     </div>
+</div>
