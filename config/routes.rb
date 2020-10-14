@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'attendances/new'
   get 'teachers/show'
   root 'home#index'
-  resources :lessons
+  resources :lessons do
+    member do
+      patch 'cancel'
+    end
+  end
   resources :attendances, only: [:create, :destroy]
 
   # 認証に必要なルーティングを自動で設定

@@ -13,39 +13,44 @@
     <div class="pt-2 mb-5">
       <%= simple_format(@lesson.description) %>
     </div>
+    <% if @lesson.teacher.id == current_teacher.id && !@lesson.approval then   %>
+      <div class="pt-2 mb-5">
+      <%= link_to "申請をキャンセルする", cancel_lesson_path(@lesson.id), method: :patch, action: 'cancel', class: 'btn btn-danger btn-block'%>
+      </div>
+    <% end %>
+     <% if @lesson.teacher.id == current_teacher.id && !@lesson.deleted then   %>
+      <div class="pt-2 mb-5">
+      <%= link_to "レッスンを閉講する", lesson_path(@lesson.id), method: :delete, class: 'btn btn-danger btn-block'%>
+      </div>
+    <% end %>
   </div>
   <div class="col-sm-4">
     <div class="h-100 p-3">
       <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
-      <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
-      
-      コース：<%= @lesson.frequency %>
-      <% if current_user then %>
-        <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
-          <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
-          <%= f.submit "申し込む", class: "btn btn-primary" %>
+        <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
+        
+        コース：<%= @lesson.frequency %>
+        <% if current_user then %>
+          <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
+            <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
+            <%= f.submit "申し込む", class: "btn btn-primary" %>
+          <% end %>
         <% end %>
-      <% end %>
-      </h4>
+        </h4>
       </div>
 
       <div class="border pt-5 pb-5 mt-5 h-70 text-center lesson-teacher-wrap">
-      <h4 class="text-center">講師プロフィール
-      </h4>
-      <% if @lesson.teacher.avatar? %> 
-      <p>
-        <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>
-      </p>
-      <% end %>
-      <p><%= @lesson.teacher.name %></p>
-      <p><%= @lesson.teacher.age %></p>
-      <p><%= @lesson.teacher.sex %></p>
-
-
+        <h4 class="text-center">講師プロフィール
+        </h4>
+        <% if @lesson.teacher.avatar? %> 
+        <p>
+          <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>
+        </p>
+        <% end %>
+        <p><%= @lesson.teacher.name %></p>
+        <p><%= @lesson.teacher.age %></p>
+        <p><%= @lesson.teacher.sex %></p>
       </div>
-
-    
-
     </div>
   </div>
   </div>

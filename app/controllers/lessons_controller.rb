@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
 
   def index
-    @lessons = Lesson.all.where(approval: 1).paginate(page: params[:page], per_page: 6)
+    @lessons = Lesson.all.where(approval: true, deleted: false).paginate(page: params[:page], per_page: 6)
   end
 
   def show
@@ -31,6 +31,26 @@ class LessonsController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.deleted = true
+    if @lesson.save
+      redirect_to teacher_path(current_teacher)
+    else
+      render 'edit'
+    end
+  end
+
+  def cancel
+      @lesson = Lesson.find(params[:id])
+      @lesson.deleted = true
+      if @lesson.save
+        redirect_to teacher_path(current_teacher)
+      else
+        render 'edit'
+      end
   end
 
   private
