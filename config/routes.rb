@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :attendances, only: [:create, :destroy]
 
   # 認証に必要なルーティングを自動で設定
-  devise_for :admins
+  devise_for :admins, :controllers => {
+    :registrations => 'admins/registrations',
+    :sessions => 'admins/sessions',
+    :passwords => 'admins/passwords'
+   }
   devise_for :teachers
   devise_for :users
   
@@ -21,6 +25,7 @@ Rails.application.routes.draw do
   resources :teachers, only: [:show]
   resources :admin, only: [:index]
   namespace :admin do
+    root to: "home#index"
     resources :users, :teachers
     resources :lessons do
       member do

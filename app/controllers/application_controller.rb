@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
       user_path(resource.id)
     when Teacher
       teacher_path(resource.id)
+    when Admin
+      admin_index_path
     end
   end
 
