@@ -1,16 +1,30 @@
+$main-color: #FFCCD6;
+$main-color: #f8f9fa;
+// $sub-color: #FF6688;
+$sub-color: #343a40;
+// $font-main-color: #990088;
+$font-main-color: #343a40;
+$font-sub-color: white;
+$card-bg-color: #f8e8eb;
+$card-bg-color: #dee2e6;
+$active-tab-bg-color:#E00033;
+$active-tab-bg-color:#007bff;
+
+html, body {height: 100%;}
+
 .main-contents {
-    min-height:700px;
-    background-color:#FFCCD6;
-    color: #990088;
+    min-height:725px;
+    background-color:$main-color;
+    color: $font-main-color;
 }
 
 .navbar {
-    background-color:#FF6688;
+    background-color:$sub-color;
     a {
-        color: white;
+        color: $font-sub-color;
     }
     .navbar-toggler {
-        background-color: #FFCCD6;
+        background-color: $main-color;
         border-color: #000;
     }
 
@@ -18,47 +32,33 @@
 
 
 .nav-link.active {
-    background-color:#FF6688;
+    background-color:$sub-color;
 }
 
 .jumbotron {
-    background:url(header-bg.jpg) center no-repeat;
+    background:url(3696582_m.jpg) center no-repeat;
     background-size: cover;
-    height: 650px;
-}
-
-.container-jumbotron {
-    padding-top: 13%;
-    color: #FF6688;
-     text-shadow: 
-       2px  2px 1px #000,
-      -2px  2px 1px #000,
-       2px -2px 1px #000,
-      -2px -2px 1px #000,
-       2px  0px 1px #000,
-       0px  2px 1px #000,
-      -2px  0px 1px #000,
-       0px -2px 1px #000;        /* 文字の影 */
-    letter-spacing : 4px;                /* 文字間 */
+    height: 500px;
+   letter-spacing : 2px;                /* 文字間 */
 }
 
 .feature-wrap {
-    background-color:#FFCCD6;
-    color: #990088;
+    background-color:$main-color;
+    color:$font-main-color;
 }
 
 .profile-wrap {
-    background-color:#FFCCD6;
-    color: #990088;
+    background-color:$main-color;
+    color:$font-main-color;
     text-align: center;
 }
 
 .lesson-wrap {
-    background-color:#FFCCD6;
-    color: #990088;
+    background-color:$main-color;
+    color:$font-main-color;
     
     .title {
-        background-color:#FFCCD6;
+        background-color:$main-color;
         text-align: right;
     }
     .lesson-tab {
@@ -66,11 +66,11 @@
         border-color: black;
     }
     .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-        background-color: #E00033;
+        background-color: $active-tab-bg-color;
     }
 
     .nav-pills .nav-link {
-        background-color: #f8e8eb;
+        background-color: $card-bg-color;
     }
 
 
@@ -91,8 +91,8 @@
 }
 
 .tab-lesson {
-    background-color:#f8e8eb;
-    color: #990088;
+    background-color:$card-bg-color;
+    color:$font-main-color;
     img {
         width: 250px;
         max-height: 150px;
@@ -110,23 +110,23 @@
 }
 
 .lesson-apply-wrap {
-    background-color:#f8e8eb;
+    background-color:$card-bg-color;
 }
 
 .lesson-teacher-wrap {
-    background-color:#f8e8eb;
+    background-color:$card-bg-color;
 }
 
 .lesson-index-wrap {
     .lesson {
-        background-color:#f8e8eb;
-        border-bottom: medium solid #FFCCD6;
+        background-color:$card-bg-color;
+        border-bottom: medium solid $main-color;
     }
 }
 
 .card-body {
-    background-color:#f8e8eb;
-    color: #990088; 
+    background-color:$card-bg-color;
+    color:$font-main-color; 
     
 }
 

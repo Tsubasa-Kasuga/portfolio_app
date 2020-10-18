@@ -1,29 +1,35 @@
 <% provide(:title, "管理ホーム画面") %>
-<div class="container min-vh-75">
+<div class="container p-1 h-100 ">
   <div class="row">
-    <div class="col-2">
-    </div>
-    <div class="col-8 d-flex align-items-center justify-content-center">
-    <div class="text-center">
-    会員管理<br>
-    <%= link_to '生徒一覧', admin_users_path %>
-    <%= link_to '講師一覧', admin_teachers_path %>
-    </div>
-    </div>
-    <div class="col-2">
+    <div class="col-12">
+    <h1 class="p-5 text-dark text-center">管理機能</h1>
+  
+  <div class="card-deck">
+  <div class="card">
+      <%= image_tag 'user.jpg', class:'card-img-top'%>
+    <div class="card-body bg-white text-dark">
+      <h5 class="card-title">生徒管理</h5>
+      <p class="card-text">生徒一覧、登録情報詳細、登録情報修正</p>
+       <%= link_to '管理ページへ', admin_users_path, class: 'btn btn-primary' %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-2">
-    </div>
-    <div class="col-8 d-flex align-items-center justify-content-center">
-    <div class="text-center">
-    レッスン管理<br>
-    <%= link_to 'レッスン一覧', admin_lessons_path %>
-    レッスン申請承諾
-    </div>
-    </div>
-    <div class="col-2">
+  <div class="card">
+    <%= image_tag 'teacher.jpg', class:'card-img-top'%>
+    <div class="card-body bg-white text-dark">
+      <h5 class="card-title">講師管理</h5>
+      <p class="card-text">講師一覧、登録情報詳細、登録情報修正</p>
+      <%= link_to '管理ページへ', admin_teachers_path, class: 'btn btn-primary' %>
     </div>
   </div>
+  <div class="card">
+    <%= image_tag 'lesson.jpg', class:'card-img-top' %>
+    <div class="card-body bg-white text-dark">
+      <h5 class="card-title">レッスン管理</h5>
+      <p class="card-text">レッスン一覧、レッスン情報詳細、申請確認</p>
+      <%= link_to '管理ページへ', admin_lessons_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </div>

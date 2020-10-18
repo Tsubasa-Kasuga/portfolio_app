@@ -1,14 +1,23 @@
 
-<div class="jumbotron mb-0">
-  <div class="container text-center container-jumbotron">
-    <h1 class="display-4">りもーとレッスン♪</h1>
-    <h5 class="">おうちでレッスン受ませんか？はじめてピアノから上級者さんまで豊富なレッスンで上達しましょう！</h5>
-    <br>
-    <%= link_to "レッスンをさがす", lessons_path, class: "btn btn-secondary btn-lg" %>
-  </div>
+<div class="jumbotron">
+
+    <h1 class="display-3">りもーとレッスン♪</h1>
+    <h3 class="pl-3">おうちでピアノレッスン始めませんか？</h3>
 </div>
 
-<div class="container-fluid feature-wrap">
+<div class="container ">
+    <div class="row p-5">
+      <div class="col-12 text-center">
+      　<h3 class="pb-3">りもーとレッスンとは？</h3>
+        <h5 class="pb-3">気になったピアノレッスンを手軽に、オンラインで受講できるサービスです。</h5>
+        <%= link_to "レッスンをさがす", lessons_path, class: "btn btn-secondary btn-lg" %>
+      </div>
+    </div>
+    <div class="row pb-5">
+      <div class="col-12 text-center">
+        <%= image_tag 'header-bg.jpg',  :size =>'700x400' %>
+       </div>
+     </div>
     <div class="row p-5">
       <div class="col-lg-4 text-center">
         <i class="fas fa-music fa-3x icon-index"></i>

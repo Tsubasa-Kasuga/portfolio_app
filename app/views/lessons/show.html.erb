@@ -13,15 +13,17 @@
     <div class="pt-2 mb-5">
       <%= simple_format(@lesson.description) %>
     </div>
-    <% if @lesson.teacher.id == current_teacher.id && !@lesson.approval then   %>
-      <div class="pt-2 mb-5">
-      <%= link_to "申請をキャンセルする", cancel_lesson_path(@lesson.id), method: :patch, action: 'cancel', class: 'btn btn-danger btn-block'%>
-      </div>
-    <% end %>
-     <% if @lesson.teacher.id == current_teacher.id && !@lesson.deleted then   %>
-      <div class="pt-2 mb-5">
-      <%= link_to "レッスンを閉講する", lesson_path(@lesson.id), method: :delete, class: 'btn btn-danger btn-block'%>
-      </div>
+    <% if current_teacher then   %>
+      <% if @lesson.teacher.id == current_teacher.id && !@lesson.approval then   %>
+        <div class="pt-2 mb-5">
+        <%= link_to "申請をキャンセルする", cancel_lesson_path(@lesson.id), method: :patch, action: 'cancel', class: 'btn btn-danger btn-block'%>
+        </div>
+      <% end %>
+      <% if @lesson.teacher.id == current_teacher.id && !@lesson.deleted then   %>
+        <div class="pt-2 mb-5">
+        <%= link_to "レッスンを閉講する", lesson_path(@lesson.id), method: :delete, class: 'btn btn-danger btn-block'%>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="col-sm-4">
