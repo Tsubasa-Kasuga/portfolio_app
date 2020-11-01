@@ -1,0 +1,32 @@
+example_id                             | status | run_time        |
+-------------------------------------- | ------ | --------------- |
+./spec/models/admin_spec.rb[1:1:1:1]   | passed | 0.00464 seconds |
+./spec/models/admin_spec.rb[1:2:1:1]   | passed | 0.00417 seconds |
+./spec/models/admin_spec.rb[1:2:2:1]   | passed | 0.00994 seconds |
+./spec/models/admin_spec.rb[1:2:3:1]   | passed | 0.0139 seconds  |
+./spec/models/admin_spec.rb[1:2:4:1]   | passed | 0.00661 seconds |
+./spec/models/admin_spec.rb[1:2:5:1]   | passed | 0.00519 seconds |
+./spec/models/lesson_spec.rb[1:1:1]    | passed | 0.03386 seconds |
+./spec/models/lesson_spec.rb[1:2:1:1]  | passed | 0.00485 seconds |
+./spec/models/lesson_spec.rb[1:2:2:1]  | passed | 0.00406 seconds |
+./spec/models/lesson_spec.rb[1:2:3:1]  | passed | 0.004 seconds   |
+./spec/models/lesson_spec.rb[1:2:4:1]  | passed | 0.20728 seconds |
+./spec/models/lesson_spec.rb[1:2:5:1]  | passed | 0.00455 seconds |
+./spec/models/lesson_spec.rb[1:2:6:1]  | passed | 0.00387 seconds |
+./spec/models/lesson_spec.rb[1:2:7:1]  | passed | 0.00406 seconds |
+./spec/models/lesson_spec.rb[1:2:8:1]  | passed | 0.00426 seconds |
+./spec/models/lesson_spec.rb[1:2:9:1]  | passed | 0.0046 seconds  |
+./spec/models/teacher_spec.rb[1:1:1:1] | passed | 0.00504 seconds |
+./spec/models/teacher_spec.rb[1:2:1:1] | passed | 0.00696 seconds |
+./spec/models/teacher_spec.rb[1:2:2:1] | passed | 0.00594 seconds |
+./spec/models/teacher_spec.rb[1:2:3:1] | passed | 0.03532 seconds |
+./spec/models/teacher_spec.rb[1:2:4:1] | passed | 0.00791 seconds |
+./spec/models/teacher_spec.rb[1:2:5:1] | passed | 0.00926 seconds |
+./spec/models/teacher_spec.rb[1:2:6:1] | passed | 0.00536 seconds |
+./spec/models/user_spec.rb[1:1:1:1]    | passed | 0.00565 seconds |
+./spec/models/user_spec.rb[1:2:1:1]    | passed | 0.00664 seconds |
+./spec/models/user_spec.rb[1:2:2:1]    | passed | 0.00651 seconds |
+./spec/models/user_spec.rb[1:2:3:1]    | passed | 0.0124 seconds  |
+./spec/models/user_spec.rb[1:2:4:1]    | passed | 0.00714 seconds |
+./spec/models/user_spec.rb[1:2:5:1]    | passed | 0.0195 seconds  |
+./spec/models/user_spec.rb[1:2:6:1]    | passed | 0.00634 seconds |

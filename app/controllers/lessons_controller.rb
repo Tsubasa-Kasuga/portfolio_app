@@ -10,13 +10,19 @@ class LessonsController < ApplicationController
   end
 
   def new
+    @lesson = Lesson.new
   end
 
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.teacher_id = current_teacher.id
     @lesson.save
-    redirect_to @lesson
+    if @lesson.save
+      redirect_to @lesson
+    else
+      flash.now[:alert] = '入力内容に誤りがあります。'
+      render 'new'
+    end
   end
 
   def edit

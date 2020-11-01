@@ -49,7 +49,7 @@
                 <div class="row border p-0 m-0">
                 <div class="col-sm-7 text-left tab-lesson p-2">
                     <h4><%= lesson_unapproved.title %></h3>
-                    <p>料金:<%= converting_to_jpy(lesson_unapproved.price) %></p>
+                    <p>料金:<%= lesson_unapproved.price_i18n %></p>
                     <p>申込日:<%= lesson_unapproved.created_at.strftime("%Y-%m-%d") %></p>
                     <object><%= link_to '編集', edit_lesson_path(lesson_unapproved.id) %></object>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="row border p-0 m-0">
                 <div class="col-sm-7 text-left tab-lesson">
                     <h4><%= lesson_approved.title %></h3>
-                    <p>料金:<%= converting_to_jpy(lesson_approved.price) %></p>
+                    <p>料金:<%= lesson_approved.price_i18n %></p>
                     <p>申込日:<%= lesson_approved.created_at.strftime("%Y-%m-%d") %></p>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">
@@ -106,7 +106,7 @@
                 <div class="row border p-0 m-0">
                 <div class="col-sm-7 text-left tab-lesson">
                     <h4><%= lesson_finished.title %></h3>
-                    <p>料金:<%= converting_to_jpy(lesson_finished.price) %></p>
+                    <p>料金:<%= lesson_finished.price_i18n %></p>
                     <p>申込日:<%= lesson_finished.created_at.strftime("%Y-%m-%d") %></p>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">

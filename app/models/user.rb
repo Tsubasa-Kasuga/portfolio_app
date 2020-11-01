@@ -11,6 +11,7 @@ class User < ApplicationRecord
   # バリデーション
   validates :name, presence: true
   validates :birth_date, presence: true
+  validates :email, presence: true
   validates :sex, presence: true
   enum sex: { 男性: 0, 女性: 1}
 

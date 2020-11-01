@@ -5,7 +5,17 @@
 
 
 <%= form_with scope: :lesson, url: lessons_path, local: true do |form| %>
-
+  <% if @lesson.errors.any? %>
+  <div id="error_explanation">
+   <div class="alert alert-danger alert-dismissible" role="alert">
+    <ul>
+    <% @lesson.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+  </div>
+  <% end %>
   <!--タイトル -->
   <div class="form-group">
     <%= form.label :title, 'レッスンのタイトル' %><br>
@@ -25,27 +35,14 @@
   </div>
 
   <!--時間 -->
-  <div class="form-group form-row">
-    <div class="col-12">
-      <%= form.label :time, 'レッスン時間' %><br>
-    </div>
-    <div class="col-4">
-      <%= form.text_field :time , class: 'form-control form-control-sm' %>
-    </div>
-    <div class="col-2 p-1">分</div>
+  <div class="form-group">
+    <%= form.label :time, 'レッスン時間' %>
+    <%= form.select :time, Lesson.times.keys.to_a, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
   </div>
-
   <!--料金-->
-  <div class="form-group form-row">
-    <div class="col-12">
-    <%= form.label :price, '料金' %><br>
-    </div>
-    <div class="col-4">
-    <%= form.text_field :price , class: 'form-control form-control-sm' %>
-    </div>
-    <div class="col-2 p-1">
-    円
-    </div>
+  <div class="form-group">
+    <%= form.label :price, '料金' %>
+    <%= form.select :price, Lesson.prices_i18n.keys.map { |k| [Lesson.prices_i18n[k], k]}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %>
   </div>
   
   <!--イメージ画像-->

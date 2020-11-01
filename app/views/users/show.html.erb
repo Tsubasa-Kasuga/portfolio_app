@@ -43,7 +43,7 @@
                 <div class="row border p-0 m-0">
                 <div class="col-sm-7 text-left tab-lesson">
                     <h4><%= lesson_attendanced.title %></h3>
-                    <p>料金:<%= converting_to_jpy(lesson_attendanced.price) %></p>
+                    <p>料金:<%= lesson_attendanced.price_i18n %></p>
                     <p>申込日:<%= lesson_attendanced.created_at.strftime("%Y-%m-%d") %></p>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">

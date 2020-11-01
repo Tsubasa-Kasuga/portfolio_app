@@ -29,7 +29,7 @@
   <div class="col-sm-4">
     <div class="h-100 p-3">
       <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
-        <h4>料　金：<%= converting_to_jpy(@lesson.price) %><br>
+        <h4>料　金：<%= @lesson.price_i18n %><br>
         
         コース：<%= @lesson.frequency %>
         <% if current_user then %>

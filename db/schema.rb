@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(version: 2020_10_11_030657) do
   end
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "lesson_id"
-    t.boolean "termination"
-    t.boolean "deleted"
+    t.integer "user_id", null: false
+    t.integer "lesson_id", null: false
+    t.boolean "termination", default: false, null: false
+    t.boolean "deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

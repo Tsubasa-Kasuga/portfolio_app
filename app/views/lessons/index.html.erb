@@ -17,7 +17,7 @@
                 <div class="card-body">
                   <h2 class="card-title"><%= lesson.title %></h2>
                   <p class="card-text">講師:<%= lesson.teacher.name %></p>
-                  <p class="card-text">価格:<%= converting_to_jpy(lesson.price) %></p>
+                  <p class="card-text">価格:<%= lesson.price_i18n %></p>
                 </div>
               </div>
             <% end %>
