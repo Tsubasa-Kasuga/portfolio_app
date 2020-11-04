@@ -12,14 +12,23 @@ Rails.application.routes.draw do
   resources :attendances, only: [:create, :destroy]
 
   # 認証に必要なルーティングを自動で設定
+  devise_for :users, :controllers => {
+    :sessions      => "users/sessions",
+    :registrations => "users/registrations",
+    :passwords     => "users/passwords",
+  }
+
+  devise_for :teachers, :controllers => {
+    :sessions      => "teachers/sessions",
+    :registrations => "teachers/registrations",
+    :passwords     => "teachers/passwords",
+  }
+
   devise_for :admins, :controllers => {
     :registrations => 'admins/registrations',
     :sessions => 'admins/sessions',
     :passwords => 'admins/passwords'
    }
-  devise_for :teachers
-  devise_for :users
-  
 
   resources :users, only: [:show]
   resources :teachers, only: [:show]
