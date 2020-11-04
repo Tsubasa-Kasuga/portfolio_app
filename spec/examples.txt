@@ -30,6 +30,11 @@ example_id                              | status | run_time        |
 ./spec/models/user_spec.rb[1:2:4:1]     | passed | 0.00714 seconds |
 ./spec/models/user_spec.rb[1:2:5:1]     | passed | 0.0195 seconds  |
 ./spec/models/user_spec.rb[1:2:6:1]     | passed | 0.00634 seconds |
+./spec/system/admins_spec.rb[1:1:1]     | passed | 0.00389 seconds |
+./spec/system/admins_spec.rb[1:1:2:1]   | passed | 0.7954 seconds  |
+./spec/system/admins_spec.rb[1:1:2:2]   | passed | 0.60578 seconds |
+./spec/system/admins_spec.rb[1:2:1:1]   | failed | 4.81 seconds    |
+./spec/system/admins_spec.rb[1:2:1:2]   | passed | 1.09 seconds    |
 ./spec/system/teachers_spec.rb[1:1:1:1] | passed | 0.90438 seconds |
 ./spec/system/teachers_spec.rb[1:1:1:2] | passed | 0.8938 seconds  |
 ./spec/system/teachers_spec.rb[1:1:2:1] | passed | 0.54965 seconds |

@@ -25,10 +25,14 @@ Rails.application.routes.draw do
   }
 
   devise_for :admins, :controllers => {
-    :registrations => 'admins/registrations',
     :sessions => 'admins/sessions',
     :passwords => 'admins/passwords'
    }
+   as :admin do
+    get 'admins/edit' => 'admins/registrations#edit', :as => 'edit_admin_registration'
+    put 'admins' => 'admins/registrations#update', :as => 'admin_registration'
+  end
+
 
   resources :users, only: [:show]
   resources :teachers, only: [:show]
