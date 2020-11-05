@@ -1,11 +1,14 @@
 # 概要
 オンラインのピアノレッスンを手軽に探せるサービスです。
 
-URL 
-りもーとレッスン♪ 
+URL
+<br>
+りもーとレッスン♪
+<br>
 https://kasuga-portfolio.herokuapp.com
 
-りもーとレッスン♪(管理者機能) 
+りもーとレッスン♪(管理者機能)
+<br>
 https://kasuga-portfolio.herokuapp.com/admin
 
 それぞれ「ゲストログイン」ボタンからテストユーザーとしてログインできます。
