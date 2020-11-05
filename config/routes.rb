@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get 'attendances/new'
   get 'teachers/show'
   root 'home#index'
-  post 'home/guest_sign_in', to: 'home#new_guest'
-  post 'home/guest_teacher_sign_in', to: 'home#new_guest_teacher'
+  post 'users/guest_sign_in', to: 'users#new_guest'
+  post 'teachers/guest_teacher_sign_in', to: 'teachers#new_guest_teacher'
+  post 'admin/guest_sign_in', to: 'admin#new_guest'
   resources :lessons do
     member do
       patch 'cancel'

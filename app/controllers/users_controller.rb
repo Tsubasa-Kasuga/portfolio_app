@@ -11,4 +11,16 @@ class UsersController < ApplicationController
     # 終了しているレッスンを取得
     @lessons_finished = Lesson.where(teacher_id: params[:id], deleted: true).paginate(page: params[:page], per_page: 3)
   end
+
+  def new_guest
+    user = User.find_or_create_by!(email: "guest@example.com") do |user|
+      user.name = "ゲスト会員"
+      user.birth_date = "1990-10-1"
+      user.sex = 1
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: "ゲストユーザーとしてログインしました。"
+  end
+  
 end
