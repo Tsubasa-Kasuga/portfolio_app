@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-  
   get 'attendances/new'
   get 'teachers/show'
   root 'home#index'
+  post 'home/guest_sign_in', to: 'home#new_guest'
+  post 'home/guest_teacher_sign_in', to: 'home#new_guest_teacher'
   resources :lessons do
     member do
       patch 'cancel'
@@ -11,12 +12,12 @@ Rails.application.routes.draw do
   end
   resources :attendances, only: [:create, :destroy]
 
-  # 認証に必要なルーティングを自動で設定
   devise_for :users, :controllers => {
     :sessions      => "users/sessions",
     :registrations => "users/registrations",
     :passwords     => "users/passwords",
   }
+
 
   devise_for :teachers, :controllers => {
     :sessions      => "teachers/sessions",
