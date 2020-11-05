@@ -1,5 +1,6 @@
 class Admin::TeachersController < Admin::ApplicationController
-  layout 'admin_layout'
+  layout "admin_layout"
+
   def index
     @teachers = Teacher.all.paginate(page: params[:page], per_page: 10)
   end
@@ -21,17 +22,17 @@ class Admin::TeachersController < Admin::ApplicationController
 
   def update
     @teacher = Teacher.find(params[:id])
-  
+
     if @teacher.update(teacher_params)
       redirect_to admin_teacher_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   private
-  def teacher_params
-      params.require(:teacher).permit(:name, :email, :birth_date, :sex, :avatar)
-  end
 
+  def teacher_params
+    params.require(:teacher).permit(:name, :email, :birth_date, :sex, :avatar)
+  end
 end

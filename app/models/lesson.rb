@@ -10,19 +10,19 @@ class Lesson < ApplicationRecord
   validates :frequency, presence: true
   validates :time, presence: true
   validates :price, presence: true
-  
-  enum frequency:{
+
+  enum frequency: {
     １回コース: 0,
     月２回コース: 1,
-    月４回コース: 2
+    月４回コース: 2,
   }
-  enum time:{
+  enum time: {
     １５分: 0,
     ３０分: 1,
     ４５分: 2,
-    ６０分: 3
+    ６０分: 3,
   }
-  enum price:{
+  enum price: {
     ５００: 0,
     １０００: 1,
     ２０００: 2,
@@ -35,6 +35,6 @@ class Lesson < ApplicationRecord
     ９０００: 9,
     １００００: 10,
     １5０００: 11,
-    ２００００: 12
+    ２００００: 12,
   }
 end

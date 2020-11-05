@@ -1,5 +1,5 @@
 class Admin::LessonsController < Admin::ApplicationController
-  layout 'admin_layout'
+  layout "admin_layout"
 
   def index
     @lessons_unapproved = Lesson.all.where(approval: 0).paginate(page: params[:page], per_page: 10)
@@ -7,8 +7,7 @@ class Admin::LessonsController < Admin::ApplicationController
   end
 
   def show
-    @lesson = Lesson.joins(:teacher).select('lessons.*').find(params[:id])
-    
+    @lesson = Lesson.joins(:teacher).select("lessons.*").find(params[:id])
   end
 
   def new
@@ -27,11 +26,11 @@ class Admin::LessonsController < Admin::ApplicationController
 
   def update
     @lesson = Lesson.find(params[:id])
-  
+
     if @lesson.update(lesson_params)
       redirect_to admin_lesson_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -43,7 +42,8 @@ class Admin::LessonsController < Admin::ApplicationController
   end
 
   private
-    def lesson_params
-        params.require(:lesson).permit(:title, :description, :time, :price, :frequency, :lessonImage)
-    end
+
+  def lesson_params
+    params.require(:lesson).permit(:title, :description, :time, :price, :frequency, :lessonImage)
+  end
 end
