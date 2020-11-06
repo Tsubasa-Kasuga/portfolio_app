@@ -10,16 +10,6 @@ class Admin::LessonsController < Admin::ApplicationController
     @lesson = Lesson.joins(:teacher).select("lessons.*").find(params[:id])
   end
 
-  def new
-  end
-
-  def create
-    @lesson = Lesson.new(lesson_params)
-    @lesson.teacher_id = current_teacher.id
-    @lesson.save
-    redirect_to admin_lesson_path
-  end
-
   def edit
     @lesson = Lesson.find(params[:id])
   end

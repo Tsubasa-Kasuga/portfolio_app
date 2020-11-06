@@ -5,8 +5,8 @@
     <div class="col-sm-8 p-5">
     <h2><%= @teacher.name %></h2>
     <div>
-    <% if @teacher.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @teacher.avatar.url, class: 'img-fluid' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+    <% if @teacher.avatar? %>
+        <%= image_tag @teacher.avatar.url, class: 'img-fluid' %>
     <% else %>
        <%= image_tag 'default_avater.png', alt: 'デフォルトイメージ', class: 'img-fluid' %>
     <% end %>
@@ -17,17 +17,11 @@
     <div class="col-sm-2"></div>
   </div>
 </div>
-
-
-
 <!-- 申請中タブ-->
 <div class="container-fluid lesson-wrap pb-5">
   <div class="row lesson-tab">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-    <div class="text-left">
-      <%= link_to 'レッスンを申請する', new_lesson_path, class: 'btn btn-primary btn-sm' %>
-    </div>
       <ul class="nav nav-tabs nav-justified nav-pills" role="tablist">
       <li class="nav-item border">
         <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">申請手続き中</a>
@@ -54,7 +48,7 @@
                     <object><%= link_to '編集', edit_lesson_path(lesson_unapproved.id) %></object>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">
-                  <% if lesson_unapproved.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
+                  <% if lesson_unapproved.lessonImage? then   %>
                     <%= image_tag lesson_unapproved.lessonImage.url, class: "img-fluid img-thumbnail"%>
                   <% else %>
                       <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: "img-fluid img-thumbnail"%>
@@ -82,7 +76,7 @@
                     <p>申込日:<%= lesson_approved.created_at.strftime("%Y-%m-%d") %></p>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">
-                  <% if lesson_approved.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
+                  <% if lesson_approved.lessonImage? then   %>
                     <%= image_tag lesson_approved.lessonImage.url, class: "img-fluid img-thumbnail"%>
                   <% else %>
                       <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: "img-fluid img-thumbnail"%>
