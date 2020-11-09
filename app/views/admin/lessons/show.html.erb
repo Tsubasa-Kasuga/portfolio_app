@@ -13,11 +13,13 @@
     <div class="pt-2 mb-5">
       <%= simple_format(@lesson.description) %>
     </div>
-    <div class="form-group">
-     <%= form_with model:@lesson, url: {controller: 'lessons', action: 'approval' } do  |form| %>
-        <%= form.submit '承諾', class: 'btn btn-primary btn-block' %>
+    <% if !@lesson.approval then   %>
+      <div class="form-group">
+        <%= form_with model:@lesson, url: {controller: 'lessons', action: 'approval' } do  |form| %>
+          <%= form.submit '承諾', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
     <% end %>
-  </div>
   </div>
   <div class="col-sm-4">
     <div class="h-100 p-3">

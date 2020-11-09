@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.joins(:teacher).select("lessons.*").find(params[:id])
+    @users = User.joins(:attendance).select("users.*, attendances.id AS attendanceId, attendances.created_at AS joinDate").where(attendances: {lesson_id: params[:id], deleted: 0})
   end
 
   def new

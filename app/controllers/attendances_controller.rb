@@ -4,4 +4,14 @@ class AttendancesController < ApplicationController
     Attendance.create(user_id: current_user.id, lesson_id: params[:lesson_id])
     redirect_to @lesson, notice: "申し込みが完了しました"
   end
+
+  def destroy
+    @attendance = Attendance.find(params[:id])
+    @attendance.deleted = true
+    if @attendance.save
+      redirect_to lesson_path(@attendance.lesson_id)
+    else
+      render "edit"
+    end
+  end
 end
