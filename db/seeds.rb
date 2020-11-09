@@ -114,7 +114,7 @@ Lesson.create!(
       title: '耳コピができるようになるレッスン',
       description: '絶対音感がなくても大丈夫です。練習すれば誰でも耳コピはできるようになります。（対象は楽譜の読み方は分かる方になります。）',
       time: 2,
-      price: 2,
+      price: 5,
       frequency: 2,
       teacher_id: 2,
       approval: 1
@@ -124,7 +124,7 @@ Lesson.create!(
       title: '初めてのジャズピアノ',
       description: 'ジャズピアノ始めませんか？簡単なフレーズから始めますので、コードがわからなくても大丈夫です！（対象は楽譜の読み方は分かる方になります。）',
       time: 2,
-      price: 2,
+      price: 8,
       frequency: 2,
       teacher_id: 3,
       approval: 1
