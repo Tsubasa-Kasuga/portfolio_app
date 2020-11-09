@@ -28,22 +28,26 @@
   </div>
   <div class="col-sm-4">
     <div class="h-100 p-3">
-      <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
-        <h4>料　金：<%= @lesson.price_i18n %><br>
-        
-        コース：<%= @lesson.frequency %>
+      <div class="border pt-5 pb-5 lesson-apply-wrap text-center">
+      <div class="pl-5 text-left">
+        <h4>料　金：<%= @lesson.price_i18n %></h4>
+        <h4>時　間：<%= @lesson.time_i18n %>/回</h4>
+        <h4>コース：<%= @lesson.frequency %></h4>
+      </div>
         <% if current_user then %>
-          <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
-            <div class="p-2"><%= hidden_field_tag :lesson_id, @lesson.id %></div>
-            <%= f.submit "申し込む", class: "btn btn-primary" %>
-          <% end %>
+           <% if attendanceCheck(@lesson.id) then %>
+            <p>申込済み</p>
+          <% else%>
+            <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
+              <%= hidden_field_tag :lesson_id, @lesson.id %>
+              <%= f.submit "申し込む", class: "btn btn-primary" %>
+            <% end %>
+          <% end%>
         <% end %>
-        </h4>
       </div>
 
       <div class="border pt-5 pb-5 mt-5 h-70 text-center lesson-teacher-wrap">
-        <h4 class="text-center">講師プロフィール
-        </h4>
+        <h4 class="text-center">講師プロフィール</h4>
         <% if @lesson.teacher.avatar? %> 
         <p>
           <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>

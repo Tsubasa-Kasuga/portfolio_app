@@ -43,6 +43,16 @@ User.create!(
       birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
       sex: 1,
       avatar: open('./app/assets/images/seeds/woman2.png')
+    },
+
+    { 
+      id: 99,
+      email: 'guest@example.com',
+      password: SecureRandom.urlsafe_base64,
+      name: 'ゲスト会員',
+      birth_date: "1990-10-1",
+      sex: 1,
+      avatar: open('./app/assets/images/seeds/woman2.png')
     }
   ]
 )
@@ -53,7 +63,7 @@ Teacher.create!(
       email: 'tanaka@example.com',
       password: 'password',
       name: '田中',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
       avatar: open('./app/assets/images/seeds/teacher_man1.png')
     },
@@ -63,7 +73,7 @@ Teacher.create!(
       email: 'yamada@example.com',
       password: 'password',
       name: '山田',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
       avatar: open('./app/assets/images/seeds/teacher_man2.png')
     },
@@ -72,7 +82,7 @@ Teacher.create!(
       email: 'suzuki@example.com',
       password: 'password',
       name: '鈴木',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
       avatar: open('./app/assets/images/seeds/teacher_woman1.png')
     },
@@ -81,9 +91,64 @@ Teacher.create!(
       email: 'sato@example.com',
       password: 'password',
       name: '佐藤',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
       avatar: open('./app/assets/images/seeds/teacher_woman2.png')
+    }
+  ]
+)
+
+Lesson.create!(
+  [
+    {
+      title: '音大出身講師によるクラシックピアノレッスン',
+      description: 'クラシック専門のピアノレッスンです。レベルに合わせた選曲をさせていただきます。もしご希望の弾きたい曲がございましたら、そちらの曲でもレッスン可能です。',
+      time: 1,
+      price: 2,
+      frequency: 0,
+      teacher_id: 1,
+      approval: 1
+    },
+
+    {
+      title: '耳コピができるようになるレッスン',
+      description: '絶対音感がなくても大丈夫です。練習すれば誰でも耳コピはできるようになります。（対象は楽譜の読み方は分かる方になります。）',
+      time: 2,
+      price: 2,
+      frequency: 2,
+      teacher_id: 2,
+      approval: 1
+    },
+
+    {
+      title: '初めてのジャズピアノ',
+      description: 'ジャズピアノ始めませんか？簡単なフレーズから始めますので、コードがわからなくても大丈夫です！（対象は楽譜の読み方は分かる方になります。）',
+      time: 2,
+      price: 2,
+      frequency: 2,
+      teacher_id: 3,
+      approval: 1
+    },
+
+    {
+      title: 'ピアニストによるハノンの正しい練習法',
+      description: 'ハノン練習してますか？正しい練習法を身に付けることが上達への近道です。（ハノンの楽譜をお持ちの方が対象です。出版社は問いません。）',
+      time: 2,
+      price: 2,
+      frequency: 2,
+      teacher_id: 3,
+      approval: 0
+    }
+  ]
+)
+
+Attendance.create!(
+  [
+    {
+      user_id: 99,
+      lesson_id: 1,
+      termination: 0,
+      deleted: 0
     }
   ]
 )
