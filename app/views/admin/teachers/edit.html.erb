@@ -1,15 +1,11 @@
 <div class="container">
-
 <div class="container-login">
 <h1 class="text-center pb-5">講師情報編集</h1>
-
 <%= form_with model: [:admin, @teacher], local: true do |f| %>
-
    <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
-
   <div class="form-group">
     <%= f.label :name, "ユーザー名"%>
     <%= f.text_field :name, class: 'form-control' %>
@@ -22,14 +18,13 @@
     <%= f.label :birth_date, "生年月日"%><br/>
     <%= f.date_select(
           :birth_date,          
-          use_month_numbers: true, # jan, febとかじゃなくて数字で月を表現
-          start_year:     1930, # 何年から表示させるか
-          end_year:       (Time.now.year), # 何年まで表示させるか
-          default:        Date.new(1980, 1, 1), # 最初に表示されている年月日
-          date_separator: '/') # 年月日を仕切る文字
+          use_month_numbers: true,
+          start_year:     1930,
+          end_year:       (Time.now.year),
+          default:        Date.new(1980, 1, 1),
+          date_separator: '/')
    %>
   </div>
-  
   <div class="form-group">
     <%= f.label :sex, "性別"%><br/>
     <%= f.label :man , "男性"%>
@@ -37,7 +32,6 @@
     <%= f.label :woman, "女性"%>
     <%= f.radio_button :sex, :女性 %>
   </div>
-
   <div class="form-group">
     <%= f.submit '変更', class: 'btn btn-primary btn-block' %>
   </div>

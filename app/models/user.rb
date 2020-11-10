@@ -4,11 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # 関連付け
   has_many :user
   has_many :attendance
   mount_uploader :avatar, AvatarUploader
-  # バリデーション
+
   validates :name, presence: true
   validates :birth_date, presence: true
   validates :email, presence: true

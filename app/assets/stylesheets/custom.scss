@@ -1,8 +1,10 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap/scss/bootstrap";
+
 $main-color: #FFCCD6;
 $main-color: #f8f9fa;
-// $sub-color: #FF6688;
 $sub-color: #343a40;
-// $font-main-color: #990088;
 $font-main-color: #343a40;
 $font-sub-color: white;
 $card-bg-color: #f8e8eb;
@@ -23,7 +25,7 @@ html, body {height: 100%;}
 }
 
 .jumbotron {
-    background:url(3696582_m.jpg) center no-repeat;
+    background:url(top-image.jpg) center no-repeat;
     background-size: cover;
     height: 500px;
     letter-spacing : 2px;
@@ -65,8 +67,6 @@ html, body {height: 100%;}
     .nav-pills .nav-link {
         background-color: $card-bg-color;
     }
-
-
 }
 
 .footer-copyright{
@@ -93,7 +93,6 @@ html, body {height: 100%;}
       }
 }
 
-// レッスン詳細ページ
 .lesson-image {
     img {
         width: 3000px;
@@ -133,4 +132,18 @@ html, body {height: 100%;}
     .image-wrap {
         display:none
     }
+}
+
+.container-login {
+    @extend .container-fluid;
+    max-width: 576px;
+    padding: 2rem;
+}
+  
+.alert-notice {
+@extend .alert-info;
+}
+
+.alert-alert {
+@extend .alert-danger;
 }

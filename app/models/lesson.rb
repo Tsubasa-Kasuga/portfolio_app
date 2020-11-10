@@ -1,10 +1,9 @@
 class Lesson < ApplicationRecord
-  # 関連付け
+
   belongs_to :teacher
   has_many :attendance
   mount_uploader :lessonImage, AvatarUploader
 
-  # バリデーション
   validates :title, presence: true, length: { minimum: 5, maximum: 20 }
   validates :description, presence: true, length: { minimum: 50, maximum: 2000 }
   validates :frequency, presence: true
