@@ -12,7 +12,7 @@ User.create!(
       email: 'taro@example.com',
       password: 'password',
       name: '太郎',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
       avatar: open('./app/assets/images/seeds/man1.png')
     },
@@ -22,7 +22,7 @@ User.create!(
       email: 'ichiro@example.com',
       password: 'password',
       name: '一郎',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
       avatar: open('./app/assets/images/seeds/man2.png')
     },
@@ -31,7 +31,7 @@ User.create!(
       email: 'hanako@example.com',
       password: 'password',
       name: '花子',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
       avatar: open('./app/assets/images/seeds/woman1.png')
     },
@@ -40,7 +40,7 @@ User.create!(
       email: 'masako@example.com',
       password: 'password',
       name: '正子',
-      birth_date: Faker::Date.between(from: '1930-01-01', to: Date.today),
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
       avatar: open('./app/assets/images/seeds/woman2.png')
     },
