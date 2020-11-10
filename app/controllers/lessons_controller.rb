@@ -59,6 +59,11 @@ class LessonsController < ApplicationController
     end
   end
 
+  def search
+    @lessons = Lesson.where('title Like ?',"%#{params[:search]}%").paginate(page: params[:page], per_page: 6)
+    render "index"
+  end
+
   private
 
   def lesson_params

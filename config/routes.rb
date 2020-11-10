@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'attendances/new'
   get 'teachers/show'
+  get 'lessons/search'
   root 'home#index'
   post 'users/guest_sign_in', to: 'users#new_guest'
   post 'teachers/guest_teacher_sign_in', to: 'teachers#new_guest_teacher'
