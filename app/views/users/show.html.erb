@@ -5,8 +5,8 @@
     <div class="col-sm-8 p-5">
     <h2><%= @user.name %></h2>
     <div>
-    <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @user.avatar.url, class: 'img-fluid' %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+    <% if @user.avatar? %>
+        <%= image_tag @user.avatar.url, class: 'img-fluid' %>
     <% else %>
        <%= image_tag 'default_avater.png', alt: 'デフォルトイメージ', class: 'img-fluid' %>
     <% end %>
@@ -44,7 +44,7 @@
                 <div class="col-sm-7 text-left tab-lesson">
                     <h4><%= lesson_attendanced.title %></h3>
                     <p>料金:<%= lesson_attendanced.price_i18n %></p>
-                    <p>申込日:<%= lesson_attendanced.created_at.strftime("%Y-%m-%d") %></p>
+                    <p>申込日:<%= lesson_attendanced.joinDate.strftime("%Y-%m-%d") %></p>
                 </div>
                 <div class="col-sm-5 text-right tab-lesson">
                   <% if lesson_attendanced.lessonImage? then   %>  <!-- アップロード画像がある場合に実行する -->
@@ -67,24 +67,23 @@
         <div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
         <% if @lessons_finished.present? then %>
             <% @lessons_finished.each do |lesson_finished| %>
+              <%= link_to lesson_path(lesson_finished), style: "text-decoration: none;" do %>
               <div class="row border p-0 m-0">
-              <div class="col-sm-12 text-left tab-lesson">
-                <ul class="lessons">
-                  <li class="text-left">
-                    申し込み日時:<%= lesson_finished.created_at.strftime("%Y-%m-%d %H:%M") %>
-                  </li>
-                  <li>
-                    <%= lesson_finished.title %>
-                  </li>
-                  <li>
-                    <%= lesson_finished.description %>
-                  </li>
-                  <li>
-                    <%= link_to '詳細', lesson_path(lesson_finished) %>
-                  </li>
-                </ul>    
+              <div class="col-sm-7 text-left tab-lesson"> 
+                    <h4><%= lesson_finished.title %></h3>
+                    <p>料金:<%= lesson_finished.price_i18n %></p>
+                    <p>申込日:<%= lesson_finished.joinDate.strftime("%Y-%m-%d") %></p>
+                </div>
+                <div class="col-sm-5 text-right tab-lesson">
+                  <% if lesson_finished.lessonImage? then   %>
+                    <%= image_tag lesson_finished.lessonImage.url, class: "img-fluid"%>
+                  <% else %>
+                      <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: "img-fluid"%>
+                  <% end %>
+                </div>
               </div>
               </div>
+            <% end %>
         <% end %>
         <%= will_paginate @lessons_finished, :previous_label => ' &lt 前へ', :next_label => '次へ &gt', renderer: WillPaginate::ActionView::BootstrapLinkRenderer %> 
         <% else %>
