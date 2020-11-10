@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-8">
+    <h2 class="pt-3 pb-3"><%= @lesson.title %></h2>
+      <div class="pb-5 lesson-image">
+      <% if @lesson.lessonImage? then   %>
+        <%= image_tag @lesson.lessonImage.url, class: 'img-fluid' %>
+      <% else %>
+       <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: 'img-fluid'%>
+      <% end %>
+       </div>
+    <h2>レッスン内容</h2>
+    <div class="pt-2 mb-5">
+      <%= simple_format(@lesson.description) %>
+    </div>
+    <% if !@lesson.approval then   %>
+      <div class="form-group">
+        <%= form_with model:@lesson, url: {controller: 'lessons', action: 'approval' } do  |form| %>
+          <%= form.submit '承諾', class: 'btn btn-primary btn-block' %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <div class="h-100 p-3">
+      <div class="border pt-5 pb-5 pl-5 lesson-apply-wrap">
+      <h4>料　金：<%= @lesson.price_i18n %><br>
+      
+      コース：<%= @lesson.frequency %>
+      </h4>
+      </div>
+
+      <div class="border pt-5 pb-5 mt-5 h-70 text-center lesson-teacher-wrap">
+        <h4 class="text-center">講師プロフィール</h4>
+        <% if @lesson.teacher.avatar? %> 
+        <p>
+          <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>
+        </p>
+        <% end %>
+        <p><%= @lesson.teacher.name %></p>
+        <p><%= @lesson.teacher.age %></p>
+        <p><%= @lesson.teacher.sex %></p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

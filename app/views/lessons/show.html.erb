@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="row">
+  <div class="col-sm-8">
+    <h2 class="pt-3 pb-3"><%= @lesson.title %></h2>
+      <div class="pb-5 lesson-image">
+      <% if @lesson.lessonImage? then   %>
+        <%= image_tag @lesson.lessonImage.url, class: 'img-fluid' %>
+      <% else %>
+       <%= image_tag 'default.png', alt: 'デフォルトイメージ', class: 'img-fluid'%>
+      <% end %>
+       </div>
+    <h2>レッスン内容</h2>
+    <div class="pt-2 mb-5">
+      <%= simple_format(@lesson.description) %>
+    </div>
+    <% if current_teacher then   %>
+      <% if @lesson.teacher.id == current_teacher.id && !@lesson.approval then   %>
+        <div class="pt-2 mb-5">
+        <%= link_to "申請をキャンセルする", cancel_lesson_path(@lesson.id), method: :patch, action: 'cancel', class: 'btn btn-danger btn-block'%>
+        </div>
+      <% end %>
+      <% if @lesson.teacher.id == current_teacher.id && !@lesson.deleted && @lesson.approval then   %>
+        <div class="pt-2 mb-5">
+        <% if @users.present? then %>
+          <h3>受講者一覧</h3>
+          <table class="table table-striped table-light table-hover table-bordered">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>レッスン申込日</th>
+                      <th>名前</th>
+                      <th>性別</th>
+                      <th>Email</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+              <% @users.each do |user| %>
+                  <tr>
+                      <td><%= user.joinDate.strftime("%Y-%m-%d")%></td>
+                      <td><%= user.name%></td>
+                      <td><%= user.sex%></td>
+                      <td><%= user.email%></td>
+                      <td><%= link_to 'レッスン完了', attendance_path(user.attendanceId) , method: :delete%></td> 
+                  </tr>
+              <% end %>
+              </tbody>
+          </table>
+        <% else %>
+        <h4>受講者は現在いません。</h4>
+        <% end %>
+        <%= link_to "レッスンを閉講する", lesson_path(@lesson.id), method: :delete, class: 'btn btn-danger btn-block'%>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-sm-4">
+    <div class="h-100 p-3">
+      <div class="border pt-5 pb-5 lesson-apply-wrap text-center">
+      <div class="pl-5 text-left">
+        <h4>料　金：<%= @lesson.price_i18n %></h4>
+        <h4>時　間：<%= @lesson.time_i18n %>/回</h4>
+        <h4>コース：<%= @lesson.frequency %></h4>
+      </div>
+        <% if current_user then %>
+           <% if attendanceCheck(@lesson.id) then %>
+            <p>申込済み</p>
+          <% else%>
+            <%= form_with(model: current_user.attendance.build, local: true) do |f| %>
+              <%= hidden_field_tag :lesson_id, @lesson.id %>
+              <%= f.submit "申し込む", class: "btn btn-primary" %>
+            <% end %>
+          <% end%>
+        <% else %>
+        <p class="text-left pl-3">お申し込みするには、会員登録または<br>ログインをしてください。</p>
+        <% end %>
+      </div>
+
+      <div class="border pt-5 pb-5 mt-5 h-70 text-center lesson-teacher-wrap">
+        <h4 class="text-center">講師プロフィール</h4>
+        <% if @lesson.teacher.avatar? %> 
+        <p>
+          <%= image_tag @lesson.teacher.avatar.url, class: 'img-fluid' %>
+        </p>
+        <% end %>
+        <p><%= @lesson.teacher.name %></p>
+        <p><%= @lesson.teacher.age %></p>
+        <p><%= @lesson.teacher.sex %></p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

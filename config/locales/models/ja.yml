@@ -1,0 +1,34 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      teacher: 講師
+      lesson: レッスン
+    attributes:
+      user:
+        name: 名前
+      teacher:
+        name: 名前
+      lesson:
+        title: レッスンのタイトル
+        description: レッスンの説明
+        time: レッスン時間
+        frequency: コース
+        price: 料金
+        lessonImage: レッスンのイメージ画像
+  enums:
+    lesson:
+      price:
+        ５００: 500円
+        １０００: 1,000円
+        ２０００: 2,000円
+        ３０００: 3,000円
+        ４０００: 4,000円
+        ５０００: 5,000円
+        ６０００: 6,000円
+        ７０００: 7,000円
+        ８０００: 8,000円
+        ９０００: 9,000円
+        １００００: 10,000円
+        １5０００: 15,000円
+        ２００００: 20,000円
