@@ -51,8 +51,7 @@ User.create!(
       password: SecureRandom.urlsafe_base64,
       name: 'ゲスト会員',
       birth_date: "1990-10-1",
-      sex: 1,
-      avatar: open('./app/assets/images/seeds/woman2.png')
+      sex: 1
     }
   ]
 )
@@ -94,6 +93,15 @@ Teacher.create!(
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
       avatar: open('./app/assets/images/seeds/teacher_woman2.png')
+    },
+
+    {
+      id: 99,
+      email: 'guest_teacher@example.com',
+      password: SecureRandom.urlsafe_base64,
+      name: 'ゲスト講師',
+      birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
+      sex: 1
     }
   ]
 )
@@ -101,11 +109,52 @@ Teacher.create!(
 Lesson.create!(
   [
     {
-      title: '音大出身講師によるクラシックピアノレッスン',
+      title: 'クラシックピアノレッスン',
       description: 'クラシック専門のピアノレッスンです。レベルに合わせた選曲をさせていただきます。もしご希望の弾きたい曲がございましたら、そちらの曲でもレッスン可能です。',
+      time: 1,
+      price: 7,
+      frequency: 2,
+      teacher_id: 99,
+      approval: 1,
+      lessonImage: open('./app/assets/images/seeds/lesson1.jpg')
+    },
+
+    {
+      title: 'ショパン入門',
+      description: 'ショパンの曲弾いてみませんか？レベルに合わせた選曲をさせていただきます。（対象は楽譜の読み方は分かる方になります。）',
+      time: 1,
+      price: 7,
+      frequency: 2,
+      teacher_id: 1,
+      approval: 1
+    },
+
+    {
+      title: 'バッハ入門',
+      description: 'バッハの曲弾いてみませんか？レベルに合わせた選曲をさせていただきます。（対象は楽譜の読み方は分かる方になります。）',
+      time: 1,
+      price: 7,
+      frequency: 2,
+      teacher_id: 1,
+      approval: 1
+    },
+
+    {
+      title: 'ベートーヴェン入門',
+      description: 'ベートーヴェンの曲弾いてみませんか？レベルに合わせた選曲をさせていただきます。（対象は楽譜の読み方は分かる方になります。）',
       time: 1,
       price: 2,
       frequency: 0,
+      teacher_id: 1,
+      approval: 1
+    },
+
+    {
+      title: 'モーツァルト入門',
+      description: 'モーツァルトの曲弾いてみませんか？レベルに合わせた選曲をさせていただきます。（対象は楽譜の読み方は分かる方になります。）',
+      time: 1,
+      price: 7,
+      frequency: 2,
       teacher_id: 1,
       approval: 1
     },
@@ -133,10 +182,10 @@ Lesson.create!(
     {
       title: 'ピアニストによるハノンの正しい練習法',
       description: 'ハノン練習してますか？正しい練習法を身に付けることが上達への近道です。（ハノンの楽譜をお持ちの方が対象です。出版社は問いません。）',
-      time: 2,
-      price: 2,
-      frequency: 2,
-      teacher_id: 3,
+      time: 3,
+      price: 5,
+      frequency: 0,
+      teacher_id: 99,
       approval: 0
     }
   ]
@@ -146,6 +195,12 @@ Attendance.create!(
   [
     {
       user_id: 99,
+      lesson_id: 1,
+      termination: 0,
+      deleted: 0
+    },
+    {
+      user_id: 1,
       lesson_id: 1,
       termination: 0,
       deleted: 0
