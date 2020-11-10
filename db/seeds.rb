@@ -197,13 +197,15 @@ Attendance.create!(
       user_id: 99,
       lesson_id: 1,
       termination: 0,
-      deleted: 0
+      deleted: 0,
+      created_at: '2020-11-10 17:42:47.647974'
     },
     {
       user_id: 1,
       lesson_id: 1,
       termination: 0,
-      deleted: 0
+      deleted: 0,
+      created_at: '2020-11-11 17:42:47.647974'
     }
   ]
 )
