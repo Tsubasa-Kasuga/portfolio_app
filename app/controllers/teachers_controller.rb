@@ -19,6 +19,6 @@ class TeachersController < ApplicationController
       teacher.password = SecureRandom.urlsafe_base64
     end
     sign_in teacher
-    redirect_to root_path, notice: "ゲストユーザー（講師）としてログインしました。"
+    redirect_to teacher_path(teacher), notice: "ゲストユーザー（講師）としてログインしました。"
   end
 end
