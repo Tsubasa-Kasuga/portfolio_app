@@ -14,7 +14,7 @@ User.create!(
       name: '太郎',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
-      avatar: open('./app/assets/images/seeds/man1.png')
+      avatar: open('./app/assets/images/man1.png')
     },
 
 
@@ -24,7 +24,7 @@ User.create!(
       name: '一郎',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
-      avatar: open('./app/assets/images/seeds/man2.png')
+      avatar: open('./app/assets/images/man2.png')
     },
 
     {
@@ -33,7 +33,7 @@ User.create!(
       name: '花子',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
-      avatar: open('./app/assets/images/seeds/woman1.png')
+      avatar: open('./app/assets/images/woman1.png')
     },
 
     {
@@ -42,7 +42,7 @@ User.create!(
       name: '正子',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
-      avatar: open('./app/assets/images/seeds/woman2.png')
+      avatar: open('./app/assets/images/woman2.png')
     },
 
     { 
@@ -64,7 +64,7 @@ Teacher.create!(
       name: '田中',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
-      avatar: open('./app/assets/images/seeds/teacher_man1.png')
+      avatar: open('./app/assets/images/teacher_man1.png')
     },
 
 
@@ -74,7 +74,7 @@ Teacher.create!(
       name: '山田',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 0,
-      avatar: open('./app/assets/images/seeds/teacher_man2.png')
+      avatar: open('./app/assets/images/teacher_man2.png')
     },
 
     {
@@ -83,7 +83,7 @@ Teacher.create!(
       name: '鈴木',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
-      avatar: open('./app/assets/images/seeds/teacher_woman1.png')
+      avatar: open('./app/assets/images/teacher_woman1.png')
     },
 
     {
@@ -92,7 +92,7 @@ Teacher.create!(
       name: '佐藤',
       birth_date: Faker::Date.between(from: '1950-01-01', to: '1995-01-01'),
       sex: 1,
-      avatar: open('./app/assets/images/seeds/teacher_woman2.png')
+      avatar: open('./app/assets/images/teacher_woman2.png')
     },
 
     {
@@ -116,7 +116,7 @@ Lesson.create!(
       frequency: 2,
       teacher_id: 99,
       approval: 1,
-      lessonImage: open('./app/assets/images/seeds/lesson1.jpg')
+      lessonImage: open('./app/assets/images/lesson1.jpg')
     },
 
     {
@@ -191,24 +191,24 @@ Lesson.create!(
   ]
 )
 
-# Attendance.create!(
-#   [
-#     {
-#       user_id: 99,
-#       lesson_id: 1,
-#       termination: 0,
-#       deleted: 0,
-#       created_at: '2020-11-10 17:42:47.647974'
-#     },
-#     {
-#       user_id: 1,
-#       lesson_id: 1,
-#       termination: 0,
-#       deleted: 0,
-#       created_at: '2020-11-11 17:42:47.647974'
-#     }
-#   ]
-# )
+Attendance.create!(
+  [
+    {
+      user_id: 99,
+      lesson_id: 1,
+      termination: 0,
+      deleted: 0,
+      created_at: '2020-11-10 17:42:47.647974'
+    },
+    {
+      user_id: 1,
+      lesson_id: 1,
+      termination: 0,
+      deleted: 0,
+      created_at: '2020-11-11 17:42:47.647974'
+    }
+  ]
+)
 
 Admin.find_or_create_by(email: 'admin@example.com') do |admin|
   admin.email = 'admin@example.com'
