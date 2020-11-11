@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @lessons_attendanced = Lesson.joins(:teacher, :attendance).select("lessons.*, attendances.created_at AS joinDate").where(attendances: { user_id: params[:id], deleted: false }).paginate(page: params[:page], per_page: 3)
-    @lessons_finished = Lesson.joins(:teacher, :attendance).select("lessons.*, attendances.created_at AS joinDate").where(attendances: { user_id: params[:id], deleted: true }).paginate(page: params[:page], per_page: 3)
+    @lessons_attendanced = Lesson.joins(:teacher, :attendance).select("lessons.*, attendances.created_at AS joindate").where(attendances: { user_id: params[:id], deleted: false }).paginate(page: params[:page], per_page: 3)
+    @lessons_finished = Lesson.joins(:teacher, :attendance).select("lessons.*, attendances.created_at AS joindate").where(attendances: { user_id: params[:id], deleted: true }).paginate(page: params[:page], per_page: 3)
   end
 
   def new_guest
