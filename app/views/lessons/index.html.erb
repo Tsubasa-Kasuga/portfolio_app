@@ -12,7 +12,7 @@
             <div class="col-sm-4 pt-3 pb-3">
             <%= link_to lesson_path(lesson), style: "text-decoration: none;" do %>
               <div class="card h-100 ">
-                    <% if lesson.lessonImage? %>  <!-- アップロード画像がある場合に実行する -->
+                    <% if lesson.lessonImage? %>
                           <%= image_tag lesson.lessonImage.url, class: 'card-img-top', height: '300px'%>
                     <% else %>
                         <%= image_tag 'default.png', class: 'card-img-top', alt: 'デフォルトイメージ', height: '300px'%>
