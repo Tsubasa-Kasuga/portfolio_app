@@ -31,6 +31,9 @@ https://kasuga-portfolio.herokuapp.com/admin
 * Bootstrap4
 * Ruby 2.6.3
 * Ruby on Rails 6.0.3.2
+* rspec
+* factory_bot
+* capybara
 * Heroku
 * MySQL（開発環境）
 * PostgreSQL（本番環境）
